@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="skill-card">
-                <h3>Tools</h3>
+                <h3>Tools &amp; Practices</h3>
                 <div class="tag-list">
                     <span class="tag">GitHub</span>
                     <span class="tag">GitLab</span>
@@ -130,11 +130,6 @@
                     <span class="tag">MATLAB</span>
                     <span class="tag">Figma</span>
                     <span class="tag">Cursor</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Practices</h3>
-                <div class="tag-list">
                     <span class="tag">OOP</span>
                     <span class="tag">TDD</span>
                     <span class="tag">Agile/Scrum</span>
@@ -156,7 +151,7 @@
                 <span class="dropdown-icon" aria-hidden="true"></span>
             </button>
             <div id="crosswordProjectSection" class="dropdown-container hidden">
-                <p>AI backtracking techniques solve user-created crossword puzzles using the WordNet dictionary, with tools for creating and deploying puzzles.</p>
+                <p>A constraint satisfaction system for crossword generation and solving, built on backtracking search over the ENWiktionary lexicon (~10M entries). Word placement is modeled as variable assignment with intersection constraints at shared grid cells; the solver prunes invalid partial assignments to reduce search depth and supports end-to-end puzzle authoring and deployment.</p>
                 <div class="project-links">
                     <a href="https://willpatpost.github.io/CrossworderTest/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
                     <a href="https://github.com/Willpatpost/Crossworder" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
@@ -170,7 +165,7 @@
                 <span class="dropdown-icon" aria-hidden="true"></span>
             </button>
             <div id="project1" class="dropdown-container hidden">
-                <p>A Java-based sliding puzzle game with multiple difficulty levels and stats tracking.</p>
+                <p>An N-puzzle engine in Java with configurable grid dimensions (3×3–7×7). Game state is encoded as a tile permutation with a blank sentinel; solvability is verified via inversion-count parity before shuffle. Moves apply adjacent tile swaps relative to the blank index with O(1) state updates, plus runtime telemetry for elapsed time and move count.</p>
                 <div class="project-links">
                     <button id="play-button" class="btn">Play in Browser</button>
                 </div>
@@ -183,13 +178,13 @@
                 <span class="dropdown-icon" aria-hidden="true"></span>
             </button>
             <div id="triangleProjectSection" class="dropdown-container hidden">
-                <p>A genetic algorithm that approximates grayscale images using semi-transparent triangles. Each individual in the population represents a set of triangles, optimized through selection, crossover, and mutation to minimize difference from the target image.</p>
+                <p>An evolutionary computation pipeline that reconstructs grayscale target images from populations of semi-transparent triangular primitives. Each chromosome encodes vertex coordinates, luminance, and alpha-blending parameters; fitness is computed as normalized mean squared error against a Gaussian-blurred reference image.</p>
                 <ul class="project-features">
-                    <li>Triangle-based image representation with customizable placement, size, grayscale value, and transparency</li>
-                    <li>Configurable GA parameters: population size, mutation rate, crossover rate, and more</li>
-                    <li>Fitness evaluation via normalized mean squared error with parallel multithreaded computation</li>
-                    <li>Gaussian blur preprocessing for smoother fitness calculations</li>
-                    <li>Evolution GIF output visualizing the optimization process over generations</li>
+                    <li>Raster composition via alpha-weighted triangle overlays on a canvas buffer</li>
+                    <li>Tunable GA hyperparameters: population size, mutation rate, crossover rate, and generation limits</li>
+                    <li>Parallel fitness evaluation using multithreaded batch scoring across individuals</li>
+                    <li>Preprocessing pipeline with Gaussian blur to stabilize pixel-level error gradients</li>
+                    <li>Serialized frame output compiled into an evolution GIF for convergence visualization</li>
                 </ul>
                 <p class="project-tech"><strong>Built with:</strong> Python, NumPy, Pillow, scikit-image</p>
                 <div class="project-links">
