@@ -1,0 +1,591 @@
+/* Base Theme Variables (Day Mode) */
+:root {
+    --background-color: #f0f0f0;
+    --text-color: #333;
+    --primary-color: #ffcb47; /* Day mode primary color */
+    --secondary-color: #ff6347; /* Day mode secondary color */
+    --accent-color: #1e90ff;
+    --button-bg-color: #ff6347;
+    --button-hover-bg: #1e90ff;
+    --button-text-color: white;
+}
+
+/* Dark Theme Variables (Night Mode) */
+[data-theme="dark"] {
+    --background-color: #1b1b2f;
+    --text-color: #f0f0f0;
+    --primary-color: #1e90ff; /* Night mode primary color */
+    --secondary-color: #f0134d; /* Night mode secondary color */
+    --accent-color: #ffcb47;
+    --button-bg-color: #f0134d;
+    --button-hover-bg: #ffcb47;
+}
+
+/* General Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Popup Styling */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensuring dark mode popup background and text color change */
+[data-theme="dark"] .popup-content {
+    background-color: #2c2c2c !important; /* Dark background */
+    color: #f5f5f5 !important; /* Lighter text */
+}
+
+.popup-content h2, 
+.popup-content p, 
+.popup-content label, 
+.popup-content select, 
+.popup-content button {
+    color: inherit;
+}
+
+/* Adjust the button in the popup for night mode */
+[data-theme="dark"] .popup-content button {
+    background-color: #444 !important; /* Darker button */
+    color: #f5f5f5 !important; /* Light text on the button */
+}
+
+/* Adjust the select dropdown in the popup for night mode */
+[data-theme="dark"] .popup-content select {
+    background-color: #444 !important; /* Darker dropdown background */
+    color: #f5f5f5 !important; /* Light text in the dropdown */
+}
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
+h2 {
+    margin-top: -15px; /* Adjust this as needed */
+}
+
+.container {
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header / Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color)); /* Updated gradient */
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 20px;
+    margin: 10px 0 20px;
+}
+
+.cta-button {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.5s ease-out;
+}
+
+.cta-button:hover {
+    transform: translateY(10px);
+    transition: transform 0.3s ease;
+}
+
+/* Theme Slider */
+.theme-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 14px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: var(--button-bg-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.slider .sun, .slider .moon {
+    font-size: 16px;
+}
+
+/* Navigation (ensure consistent spacing and no overlap) */
+nav {
+    background-color: var(--primary-color);
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Ensure uniform scroll margin for all sections */
+section {
+    padding: 60px 0; /* Adjust the padding to ensure consistent spacing */
+    scroll-margin-top: 80px; /* Ensures uniform space between the navbar and the section title when scrolling */
+}
+
+/* Specific adjustments for the Projects section */
+#projects {
+    margin-top: 60px; /* Ensure same margin as other sections */
+    padding-top: 20px; /* Slightly adjust padding to be uniform */
+}
+
+/* Other sections, like About Me and Resume */
+#about, #resume, #contact {
+    margin-top: 60px; /* Apply the same margin to ensure consistency */
+    padding-top: 20px; /* Adjust padding as needed */
+}
+
+#about, #projects, #resume, #contact {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Scroll-triggered Animations */
+.slide-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slide-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Project Card Styling */
+.project-card {
+    background-color: var(--background-color);
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+}
+
+.project-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+}
+
+.project-details {
+    margin-top: 10px;
+}
+
+.project-details .btn {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.project-details .btn:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.hidden {
+    display: none;
+}
+
+/* Back to Top Button */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: var(--button-bg-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#backToTop:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Footer */
+footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Pop-up for Sliding Puzzle */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Center the pop-up content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0; /* Remove margin */
+}
+
+.popup .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.popup .close:hover,
+.popup .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Puzzle Grid */
+#puzzleContainer {
+    display: grid;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.tile {
+    background-color: var(--primary-color);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.tile.correct {
+    background-color: lightgreen;
+}
+
+.tile.finished {
+    background-color: gold;
+}
+
+.tile:hover {
+    background-color: var(--accent-color);
+}
+
+/* Pop-up for Sliding Puzzle */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0; /* Remove margin */
+}
+
+.popup .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.popup .close:hover,
+.popup .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Project Images */
+.project-images img {
+    width: 40%;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.project-images {
+    display: flex;
+    justify-content: center;
+}
+
+/* General responsive styling */
+@media (max-width: 768px) {
+    /* Stack sections vertically and adjust paddings/margins */
+    .container, .hero-content {
+        padding: 10px;
+        text-align: center;
+    }
+
+    /* Adjust button and text sizes */
+    .btn, .play-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    /* Resize images and alignments */
+    .project-images img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Navigation styling */
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+}
+
+#movieTitle {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+#results {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 15px;
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Movie Recommender Popup Styling */
+#moviePopup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#moviePopup .popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Add spacing between project buttons */
+.project {
+    margin-bottom: 20px;  /* Adds space between the sections */
+}
+
+.project .btn {
+    margin-top: 10px;  /* Adds space between buttons in the project section */
+}
+
+/* Style for project buttons to match the other buttons */
+.project .dropdown-btn {
+    background-color: var(--button-bg-color);  /* Red background like other buttons */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;  /* Bubble-like rounded shape */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.project .dropdown-btn:hover {
+    background-color: var(--button-hover-bg);  /* Matches hover effect on other buttons */
+}
+
+/* Ensure spacing between buttons is consistent */
+.project .btn {
+    background-color: var(--button-bg-color);  /* Red background like other buttons */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;  /* Bubble-like rounded shape */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.project .btn:hover {
+    background-color: var(--button-hover-bg);  /* Hover effect */
+}
+
+.play-button {
+    background-color: var(--button-bg-color); /* Red background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.play-button:hover {
+    background-color: var(--button-hover-bg); /* Hover effect */
+}
