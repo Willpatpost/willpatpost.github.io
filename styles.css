@@ -539,6 +539,55 @@ a {
     color: var(--text-muted);
 }
 
+.resume-entry {
+    margin-bottom: 1.5rem;
+}
+
+.resume-entry:last-child {
+    margin-bottom: 0;
+}
+
+.resume-entry-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.resume-entry-header strong {
+    color: var(--text);
+    font-size: 1rem;
+}
+
+.resume-date {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.resume-org {
+    font-size: 0.925rem;
+    font-weight: 500;
+    color: var(--primary);
+    margin: 0 0 0.5rem !important;
+}
+
+.resume-bullets {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--text-muted);
+}
+
+.resume-bullets li {
+    margin-bottom: 0.4rem;
+}
+
+.resume-bullets li:last-child {
+    margin-bottom: 0;
+}
+
 /* Contact */
 .contact-intro {
     color: var(--text-muted);
