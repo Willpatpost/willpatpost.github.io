@@ -1,215 +1,274 @@
-<!-- William Poston -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="William Patric Poston's personal webpage showcasing projects, skills, and resume.">
-    <meta name="keywords" content="William Patric Poston, computer science, projects, resume, ODU, web development, AI">
+    <meta name="description" content="William Patric Poston — Computer Science graduate, software engineer, and builder of AI-driven projects.">
+    <meta name="keywords" content="William Patric Poston, computer science, portfolio, resume, ODU, web development, AI">
     <meta name="author" content="William Patric Poston">
-    <title>William Patric Poston - Portfolio</title>
+    <title>William Patric Poston | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- Header / Hero Section -->
-<header class="hero">
-    <div class="hero-content">
-        <h1>William Patric Poston</h1>
-        <p>Computer Science Graduate</p>
-        <a href="#about" class="cta-button">Learn More</a>
-    </div>
-    <div class="theme-switch">
-        <label class="switch">
+<header class="hero" id="top">
+    <nav class="nav-bar" id="navbar">
+        <a href="#top" class="nav-brand">WP</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <label class="theme-switch" aria-label="Toggle dark mode">
             <input type="checkbox" id="theme-toggle">
-            <span class="slider round">
-                <span class="sun">☀️</span>
-                <span class="moon">🌙</span>
-            </span>
+            <span class="theme-slider"></span>
         </label>
+    </nav>
+
+    <div class="hero-inner">
+        <div class="hero-photo-wrap">
+            <img src="data/profile.png" alt="William Patric Poston" class="hero-photo">
+        </div>
+        <div class="hero-text">
+            <p class="hero-eyebrow">Software Engineer &amp; CS Graduate</p>
+            <h1>William Patric Poston</h1>
+            <p class="hero-tagline">Building thoughtful software at the intersection of algorithms, AI, and real-world problem solving.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="data/william-poston-resume.pdf" class="btn btn-secondary" download>Download Resume</a>
+            </div>
+        </div>
     </div>
 </header>
 
-<!-- Navigation -->
-<nav id="navbar">
-    <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#resume">Resume</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+<main class="container">
 
-<!-- Main Content -->
-<div class="container">
-<!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello, world! My name is William Poston. I am an Old Dominion University graduate with a degree in Computer Science and a minor in Data Science. My passion for technology and innovation has driven me to dive deep into programming, algorithms, and artificial intelligence. I am constantly learning and exploring how software can be used to solve real-world problems.</p>
-
-        <p>Outside of my academic pursuits, I spend a lot of time working on personal programming projects, honing my skills through solving LeetCode challenges, and staying active. Some of my favorite activities include mountainous hiking, playing soccer, and spending time with friends. These hobbies provide a nice balance to my professional life, allowing me to stay energized and creative.</p>
-
-        <p>In terms of achievements, I am proud to have been a part of and won the Cyber INNOVATE 2022 competition. This experience strengthened my teamwork and problem-solving abilities, pushing me to think critically and develop efficient solutions under pressure.</p>
-
-        <p>Looking forward, my long-term goal is to establish myself as a software engineer, focusing on either quantum computing or the finance sector. Both of these fields excite me due to their complexity and potential for impactful innovation. Whether it’s building full-stack applications or engineering new computational systems, I am eager to contribute to cutting-edge technologies that shape the future.</p>
+    <section id="about" class="section">
+        <div class="section-header">
+            <span class="section-label">About Me</span>
+            <h2>Driven by curiosity, grounded in code</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-photo-card">
+                <img src="data/profile.png" alt="William Poston professional portrait">
+            </div>
+            <div class="about-content">
+                <p>I am an Old Dominion University graduate with a B.S. in Computer Science and a minor in Data Science. My passion for technology and innovation has led me deep into programming, algorithms, and artificial intelligence — always exploring how software can solve meaningful problems.</p>
+                <p>Outside of academics, I build personal programming projects, sharpen my skills on LeetCode, and stay active through hiking, soccer, and time with friends. That balance keeps me energized and creative.</p>
+                <p>I am proud to have competed in and won the Cyber INNOVATE 2022 competition, an experience that strengthened my teamwork and ability to deliver under pressure.</p>
+                <p>Looking ahead, I aim to grow as a software engineer in quantum computing or finance — fields where complexity meets impact, and where I can help shape what's next.</p>
+            </div>
+        </div>
     </section>
 
-<!-- Projects Section -->
-    <section id="projects">
-        <h2>Projects</h2>
+    <section id="skills" class="section">
+        <div class="section-header">
+            <span class="section-label">Expertise</span>
+            <h2>Skills &amp; Technologies</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Languages</h3>
+                <div class="tag-list">
+                    <span class="tag">Java</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">C++</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">HTML/CSS</span>
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Go</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Core Strengths</h3>
+                <div class="tag-list">
+                    <span class="tag">Object-Oriented Design</span>
+                    <span class="tag">Problem Solving</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">AI</span>
+                    <span class="tag">Data Analysis</span>
+                    <span class="tag">Data Visualization</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Highlights</h3>
+                <ul class="highlight-list">
+                    <li>B.S. Computer Science, Old Dominion University</li>
+                    <li>Minor in Data Science</li>
+                    <li>Programming team lead, GLEE</li>
+                    <li>Winner, Cyber INNOVATE 2022</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<!-- Crossworder -->
+    <section id="projects" class="section">
+        <div class="section-header">
+            <span class="section-label">Portfolio</span>
+            <h2>Selected Projects</h2>
+        </div>
+
         <div class="project">
-            <button class="dropdown-btn" data-target="crosswordProjectSection">Crossword Creator & Solver</button>
+            <button class="dropdown-btn" data-target="crosswordProjectSection" aria-expanded="false">
+                <span class="project-title">Crossword Creator &amp; Solver</span>
+                <span class="dropdown-icon" aria-hidden="true"></span>
+            </button>
             <div id="crosswordProjectSection" class="dropdown-container hidden">
-                <p>This project leverages AI backtracking techniques to solve user-created crossword puzzles using the WordNet dictionary. It also provides tools for creating and deploying puzzles.</p>
+                <p>AI backtracking techniques solve user-created crossword puzzles using the WordNet dictionary, with tools for creating and deploying puzzles.</p>
                 <div class="project-links">
-                    <a href="https://willpatpost.github.io/CrossworderTest/" target="_blank" class="btn">Try It Out</a>
-                    <a href="https://github.com/Willpatpost/Crossworder" target="_blank" class="btn">View Repository</a>
+                    <a href="https://willpatpost.github.io/CrossworderTest/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                    <a href="https://github.com/Willpatpost/Crossworder" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
                 </div>
             </div>
         </div>
 
-<!-- Sliding Puzzle Project -->
         <div class="project">
-            <button class="dropdown-btn" data-target="project1">Sliding Puzzle Game</button>
+            <button class="dropdown-btn" data-target="project1" aria-expanded="false">
+                <span class="project-title">Sliding Puzzle Game</span>
+                <span class="dropdown-icon" aria-hidden="true"></span>
+            </button>
             <div id="project1" class="dropdown-container hidden">
                 <p>A Java-based sliding puzzle game with multiple difficulty levels and stats tracking.</p>
                 <div class="project-links">
-                    <button id="play-button" class="play-button">Play Game</button> <!-- Removed inline JavaScript -->
-                    <a href="https://github.com/Willpatpost/William-Poston/tree/main/Projects/Sliding%20Puzzle/Code/Main" target="_blank" class="btn">View Source</a>
-                    <a href="https://github.com/Willpatpost/William-Poston/blob/main/Projects/Sliding%20Puzzle/Demo/Sliding%20Puzzle.jar" target="_blank" class="btn">Download JAR File</a>
-                </div>
-                <div class="project-images">
-                    <img src="https://github.com/Willpatpost/William-Poston/blob/main/Projects/Sliding%20Puzzle/Demo/Demo%20of%20Sliding%20Puzzle%20Uncompleted.png?raw=true" alt="Sliding Puzzle Game Uncompleted">
-                    <img src="https://github.com/Willpatpost/William-Poston/blob/main/Projects/Sliding%20Puzzle/Demo/Demo%20of%20Sliding%20Puzzle%20Completed.png?raw=true" alt="Sliding Puzzle Game Completed">
+                    <button id="play-button" class="btn">Play in Browser</button>
                 </div>
             </div>
         </div>
 
-<!-- Popup for Sliding Puzzle -->
-        <div id="popup" class="popup" style="display: none;">
-            <div class="popup-content">
-                <span class="close" onclick="closeSlidingPuzzle()">&times;</span>
-                <h2>Sliding Puzzle Game by William Poston</h2>
-                <label for="size">Select Puzzle Size:</label>
-                <select id="size">
-                    <option value="3">3x3</option>
-                    <option value="4">4x4</option>
-                    <option value="5">5x5</option>
-                    <option value="6">6x6</option>
-                    <option value="7">7x7</option>
-                </select>
-                <button onclick="startGame()">Play</button>
-                <div id="gameStats">
-                    <p>Time: <span id="timer">00:00:00</span></p>
-                    <p>Moves: <span id="moveCounter">0</span></p>
-                </div>
-                <div id="puzzleContainer"></div>
-                <p id="congratulationsMessage" style="display:none;">Congratulations! You finished the puzzle.</p>
-            </div>
-        </div>
-
-<!-- Movie Recommender Project Section -->
         <div class="project">
-            <button class="dropdown-btn" data-target="movieProjectSection">Movie Recommender</button>
+            <button class="dropdown-btn" data-target="movieProjectSection" aria-expanded="false">
+                <span class="project-title">Movie Recommender</span>
+                <span class="dropdown-icon" aria-hidden="true"></span>
+            </button>
             <div id="movieProjectSection" class="dropdown-container hidden">
-                <p>This project is a movie recommendation system that uses a dataset to suggest similar movies based on a given title. It leverages content-based filtering and cosine similarity to find movies with similar genres, cast, and keywords.</p>
+                <p>A content-based movie recommendation system using cosine similarity across genres, cast, and keywords.</p>
                 <div class="project-links">
-                    <button onclick="openMovieRecommender()" class="btn">Use Movie Recommender</button>
-                    <a href="https://github.com/Willpatpost/Movie-Recommender" target="_blank" class="btn">View Source</a>
+                    <button type="button" onclick="openMovieRecommender()" class="btn">Try Recommender</button>
+                    <a href="https://github.com/Willpatpost/Movie-Recommender" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
                 </div>
             </div>
         </div>
-
-<!-- Popup for Movie Recommender -->
-        <div id="moviePopup" class="popup" style="display: none;">
-            <div class="popup-content">
-                <span class="close" onclick="closeMovieRecommender()">&times;</span>
-                <h2>Movie Recommender</h2>
-                <label for="movieTitle">Enter a movie title (Ex. "Jaws"):</label>
-                <input type="text" id="movieTitle" placeholder="Enter a movie title">
-                <button id="recommendBtn" class="btn">Recommend</button>
-                <div id="results"></div>
-            </div>
-        </div>
-
-<!-- More projects can be added similarly -->
-        
     </section>
 
-<!-- Resume Section -->
-<section id="resume">
-    <h2>Resume</h2>
-    <p><strong>Education:</strong> Old Dominion University B.S. in Computer Science with a minor in Data Science.</p>
-    <p><strong>Experience:</strong> Programming team lead in the Great Lunar Expedition for Everyone (GLEE).</p>
-    <p><strong>Languages:</strong> Java, Python, C++, SQL, HTML, CSS, JavaScript, MATLAB, GO.</p>
-    <p><strong>Skills:</strong> OOP, Problem Solving, Machine Learning, AI, Data Analysis, Data Visualization.</p>
-    <p><strong>Achievements:</strong> Winner of Cyber INNOVATE 2022 competition.</p>
-    <a href="https://github.com/Willpatpost/William-Poston/blob/main/Document/Personal/Resume/William%20Poston%20Resume.pdf" download class="btn">Download Full Resume</a>
-</section>
+    <section id="resume" class="section">
+        <div class="section-header">
+            <span class="section-label">Experience</span>
+            <h2>Resume</h2>
+        </div>
+        <div class="resume-card">
+            <div class="resume-item">
+                <h3>Education</h3>
+                <p>Old Dominion University — B.S. in Computer Science, minor in Data Science</p>
+            </div>
+            <div class="resume-item">
+                <h3>Experience</h3>
+                <p>Programming team lead, Great Lunar Expedition for Everyone (GLEE)</p>
+            </div>
+            <div class="resume-item">
+                <h3>Achievements</h3>
+                <p>Winner, Cyber INNOVATE 2022 competition</p>
+            </div>
+            <a href="data/william-poston-resume.pdf" download class="btn btn-primary">Download Full Resume (PDF)</a>
+        </div>
+    </section>
 
-<section id="contact">
-    <h2>Contact</h2>
-    <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn.</p>
-<!-- Email -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/Gmail_logo.png?raw=true" alt="Email" style="width:30px;height:30px;vertical-align:middle;">
-        <a href="mailto:willpatpost@gmail.com">Email</a>
-    </p>
-<!-- LinkedIn -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/LinkedIn%20Logo.png?raw=true" alt="LinkedIn" style="width:30px;height:30px;vertical-align:middle;">
-        <a href="https://www.linkedin.com/in/william-poston" target="_blank">LinkedIn</a>
-    </p>
-<!-- GitHub -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/GitHub%20logo.png?raw=true" alt="GitHub" style="width:30px;height:30px;vertical-align:middle;">
-        <a href="https://github.com/Willpatpost" target="_blank">GitHub</a>
-    </p>
-<!-- Leetcode -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/LeetCode.png?raw=true" alt="LeetCode" style="width:72px;height:30px;vertical-align:middle;">
-        <a href="https://leetcode.com/u/willpatpost/" target="_blank">LeetCode</a>
-    </p>
-<!-- Instagram -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/Instagram%20logo.png?raw=true" alt="Instagram" style="width:30px;height:30px;vertical-align:middle;">
-        <a href="https://www.instagram.com/willlpatpost/" target="_blank">Instagram</a>
-    </p>
-<!-- Facebook -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/Facebook%20logo.png?raw=true" alt="Facebook" style="width:72px;height:30px;vertical-align:middle;">
-        <a href="https://www.facebook.com/william.poston.3363" target="_blank">Facebook</a>
-    </p>
-<!-- Twitter -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/X_logo.png?raw=true" alt="X" style="width:30px;height:30px;vertical-align:middle;">
-        <a href="https://x.com/Willpatpost" target="_blank">X/Twitter</a>
-    </p>
-<!-- YouTube -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/YouTube_Logo.png?raw=true" alt="YouTube" style="width:72px;height:30px;vertical-align:middle;">
-        <a href="https://www.youtube.com/channel/UCaZG-RuCnBDYka4JEtVXBhQ" target="_blank">YouTube</a>
-    </p>
-<!-- Chess.com -->
-    <p>
-        <img src="https://github.com/Willpatpost/William-Poston/blob/main/Images/For%20Webpage/Logos/Chess%20logo.png?raw=true" alt="Chess" style="width:72px;height:30px;vertical-align:middle;">
-        <a href="https://www.chess.com/member/willpatpost" target="_blank">Chess.com</a>
-    </p>
-</section>
+    <section id="contact" class="section">
+        <div class="section-header">
+            <span class="section-label">Get in Touch</span>
+            <h2>Contact</h2>
+        </div>
+        <p class="contact-intro">Open to opportunities, collaborations, and conversations about software and technology.</p>
+        <div class="contact-grid">
+            <a href="mailto:willpatpost@gmail.com" class="contact-link">
+                <img src="data/logos/email.svg" alt="" class="contact-icon">
+                <span>Email</span>
+            </a>
+            <a href="https://www.linkedin.com/in/william-poston" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/linkedin.svg" alt="" class="contact-icon">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/Willpatpost" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/github.svg" alt="" class="contact-icon">
+                <span>GitHub</span>
+            </a>
+            <a href="https://leetcode.com/u/willpatpost/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/leetcode.svg" alt="" class="contact-icon">
+                <span>LeetCode</span>
+            </a>
+            <a href="https://www.instagram.com/willlpatpost/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/instagram.svg" alt="" class="contact-icon">
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.facebook.com/william.poston.3363" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/facebook.svg" alt="" class="contact-icon">
+                <span>Facebook</span>
+            </a>
+            <a href="https://x.com/Willpatpost" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/x.svg" alt="" class="contact-icon">
+                <span>X / Twitter</span>
+            </a>
+            <a href="https://www.youtube.com/channel/UCaZG-RuCnBDYka4JEtVXBhQ" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/youtube.svg" alt="" class="contact-icon">
+                <span>YouTube</span>
+            </a>
+            <a href="https://www.chess.com/member/willpatpost" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <img src="data/logos/chess.svg" alt="" class="contact-icon">
+                <span>Chess.com</span>
+            </a>
+        </div>
+    </section>
+</main>
+
+<div id="popup" class="popup" style="display: none;">
+    <div class="popup-content">
+        <button type="button" class="close" onclick="closeSlidingPuzzle()" aria-label="Close">&times;</button>
+        <h2>Sliding Puzzle</h2>
+        <label for="size">Puzzle size</label>
+        <select id="size">
+            <option value="3">3×3</option>
+            <option value="4">4×4</option>
+            <option value="5">5×5</option>
+            <option value="6">6×6</option>
+            <option value="7">7×7</option>
+        </select>
+        <button type="button" class="btn" onclick="startGame()">Start Game</button>
+        <div id="gameStats">
+            <p>Time: <span id="timer">00:00:00</span></p>
+            <p>Moves: <span id="moveCounter">0</span></p>
+        </div>
+        <div id="puzzleContainer"></div>
+        <p id="congratulationsMessage" class="hidden">Congratulations! You finished the puzzle.</p>
+    </div>
 </div>
 
-<!-- Back to Top Button -->
-<button onclick="scrollToTop()" id="backToTop">Back to Top</button>
+<div id="moviePopup" class="popup" style="display: none;">
+    <div class="popup-content">
+        <button type="button" class="close" onclick="closeMovieRecommender()" aria-label="Close">&times;</button>
+        <h2>Movie Recommender</h2>
+        <label for="movieTitle">Enter a movie title (e.g. &quot;Jaws&quot;)</label>
+        <input type="text" id="movieTitle" placeholder="Movie title">
+        <button type="button" id="recommendBtn" class="btn">Recommend</button>
+        <div id="results"></div>
+    </div>
+</div>
 
-<!-- Footer -->
+<button type="button" id="backToTop" aria-label="Back to top">↑</button>
+
 <footer>
-    <p>&copy; 2024 William Patric Poston</p>
+    <p>&copy; 2026 William Patric Poston. All rights reserved.</p>
 </footer>
 
 <script src="script.js" defer></script>
 </body>
 </html>
-

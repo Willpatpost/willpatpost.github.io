@@ -1,7 +1,7 @@
 let size, puzzle, timer, moveCounter, time, moves, interval;
+let movies = [];
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Theme toggle functionality
     const themeToggle = document.getElementById("theme-toggle");
     const currentTheme = localStorage.getItem("theme") || "light";
     document.documentElement.setAttribute("data-theme", currentTheme);
@@ -13,60 +13,92 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem("theme", theme);
     });
 
-    // Smooth scrolling for navigation links
-    const links = document.querySelectorAll('nav a');
-    links.forEach(link => {
+    document.querySelectorAll('.nav-links a, .hero-actions a[href^="#"]').forEach(link => {
         link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (!href || !href.startsWith('#')) return;
             e.preventDefault();
-            document.querySelector(link.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+                closeMobileNav();
+            }
         });
     });
 
-    // Smooth scrolling for the "Learn More" button
-    const learnMoreButton = document.querySelector('.cta-button');
-    learnMoreButton.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector('#about').scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
-
-    // Dropdown toggle for project details
     document.querySelectorAll('.dropdown-btn').forEach(button => {
         button.addEventListener('click', function() {
             const projectId = this.getAttribute('data-target');
             const container = document.getElementById(projectId);
+            const isHidden = container.classList.contains('hidden');
             container.classList.toggle('hidden');
+            this.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
         });
     });
 
-    // Attach event listener for the play button, ensuring no puzzle opens on load
     document.getElementById('play-button').addEventListener('click', openSlidingPuzzle);
-
-    // Scroll to Top Button
     document.getElementById('backToTop').addEventListener('click', scrollToTop);
+    document.getElementById('recommendBtn').addEventListener('click', recommendMovies);
+
+    const navToggle = document.getElementById('nav-toggle');
+    navToggle.addEventListener('click', () => {
+        const navLinks = document.getElementById('nav-links');
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    window.addEventListener('scroll', () => {
+        const backToTop = document.getElementById('backToTop');
+        backToTop.classList.toggle('visible', window.scrollY > 400);
+        updateActiveNavLink();
+    });
+
+    fetch('data/movie_dataset.json')
+        .then(response => response.json())
+        .then(data => {
+            movies = data.map(movie => ({
+                title: movie.title.trim(),
+                features: vectorize(extractFeatures(movie))
+            }));
+        })
+        .catch(error => console.error('Error loading the movie dataset:', error));
 });
+
+function closeMobileNav() {
+    document.getElementById('nav-links').classList.remove('open');
+    document.getElementById('nav-toggle').setAttribute('aria-expanded', 'false');
+}
+
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    let current = '';
+
+    sections.forEach(section => {
+        const top = section.offsetTop - 100;
+        if (window.scrollY >= top) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
+    });
+}
 
 function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Open and close the sliding puzzle pop-up
 function openSlidingPuzzle() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'flex'; // Ensure it's centered by using flex display
-    popup.scrollIntoView({ behavior: 'smooth' }); // Ensure the pop-up scrolls into view smoothly
+    document.getElementById('popup').style.display = 'flex';
 }
 
 function closeSlidingPuzzle() {
-    const popup = document.getElementById('popup');
-    popup.style.display = 'none'; // Close the pop-up
-    clearInterval(interval); // Stop the timer when the popup is closed
+    document.getElementById('popup').style.display = 'none';
+    clearInterval(interval);
 }
 
-// Start the sliding puzzle game
 function startGame() {
     size = parseInt(document.getElementById('size').value);
     puzzle = generatePuzzle(size);
@@ -74,7 +106,7 @@ function startGame() {
     moves = 0;
     updateTimerDisplay();
     document.getElementById('moveCounter').textContent = moves;
-    document.getElementById('congratulationsMessage').style.display = 'none';
+    document.getElementById('congratulationsMessage').classList.add('hidden');
     clearInterval(interval);
     interval = setInterval(() => {
         time++;
@@ -83,7 +115,6 @@ function startGame() {
     renderPuzzle();
 }
 
-// Update the timer display
 function updateTimerDisplay() {
     const hours = Math.floor(time / 3600).toString().padStart(2, '0');
     const minutes = Math.floor((time % 3600) / 60).toString().padStart(2, '0');
@@ -91,17 +122,15 @@ function updateTimerDisplay() {
     document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-// Generate the puzzle tiles
 function generatePuzzle(size) {
     const tiles = Array.from({ length: size * size }, (_, i) => i + 1);
-    tiles[size * size - 1] = 0; // Blank tile
+    tiles[size * size - 1] = 0;
     do {
         shuffleArray(tiles);
     } while (!isSolvable(tiles) || isSolved(tiles));
     return tiles;
 }
 
-// Shuffle the puzzle array
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -109,7 +138,6 @@ function shuffleArray(array) {
     }
 }
 
-// Check if the puzzle is solvable
 function isSolvable(tiles) {
     let inversions = 0;
     for (let i = 0; i < tiles.length - 1; i++) {
@@ -123,7 +151,6 @@ function isSolvable(tiles) {
     return (size % 2 === 1 && inversions % 2 === 0) || (size % 2 === 0 && (inversions + blankRow) % 2 === 1);
 }
 
-// Check if the puzzle is already solved
 function isSolved(tiles) {
     for (let i = 0; i < tiles.length - 1; i++) {
         if (tiles[i] !== i + 1) return false;
@@ -131,7 +158,6 @@ function isSolved(tiles) {
     return true;
 }
 
-// Render the puzzle on the screen
 function renderPuzzle() {
     const container = document.getElementById('puzzleContainer');
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -152,7 +178,6 @@ function renderPuzzle() {
     });
 }
 
-// Move the tile when clicked
 function moveTile(index) {
     const blankIndex = puzzle.indexOf(0);
     const validMoves = [blankIndex - size, blankIndex + size];
@@ -167,20 +192,14 @@ function moveTile(index) {
     }
 }
 
-// Check if the player has won the game
 function checkWin() {
     if (isSolved(puzzle)) {
         clearInterval(interval);
-        const tiles = document.querySelectorAll('.tile');
-        tiles.forEach(tile => tile.classList.add('finished'));
-        document.getElementById('congratulationsMessage').style.display = 'block';
+        document.querySelectorAll('.tile').forEach(tile => tile.classList.add('finished'));
+        document.getElementById('congratulationsMessage').classList.remove('hidden');
     }
 }
 
-// New movie recommender code
-let movies = [];  // This will hold the data once loaded
-
-// Helper function to extract relevant features from each movie
 function extractFeatures(movie) {
     const keywords = movie.keywords ? movie.keywords : "";
     const cast = movie.cast ? movie.cast : "";
@@ -188,57 +207,34 @@ function extractFeatures(movie) {
     return (keywords + " " + cast + " " + genres).toLowerCase();
 }
 
-// Function to vectorize text features (simple word count)
 function vectorize(text) {
     const words = text.split(" ");
     const wordCount = {};
-    
     words.forEach(word => {
         wordCount[word] = (wordCount[word] || 0) + 1;
     });
-    
     return wordCount;
 }
 
-// Function to compute cosine similarity between two word count vectors
 function cosineSimilarity(vecA, vecB) {
     let dotProduct = 0;
     let normA = 0;
     let normB = 0;
-    
     const allWords = new Set([...Object.keys(vecA), ...Object.keys(vecB)]);
-    
     allWords.forEach(word => {
         const a = vecA[word] || 0;
         const b = vecB[word] || 0;
-        
         dotProduct += a * b;
         normA += a * a;
         normB += b * b;
     });
-    
     return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
 }
 
-// Load the dataset and extract features
-fetch('Data/movie_dataset.json')
-    .then(response => response.json())
-    .then(data => {
-        movies = data.map(movie => ({
-            title: movie.title.trim(),  // Keep original title case
-            features: vectorize(extractFeatures(movie))  // Vectorize the features
-        }));
-        console.log('Movies loaded and processed:', movies.map(movie => movie.title));
-    })
-    .catch(error => console.error('Error loading the movie dataset:', error));
-
-// Helper function to find a movie index by title
 function getIndexFromTitle(title) {
-    const normalizedTitle = title.trim();
-    return movies.findIndex(movie => movie.title.toLowerCase() === normalizedTitle.toLowerCase());
+    return movies.findIndex(movie => movie.title.toLowerCase() === title.trim().toLowerCase());
 }
 
-// Function to recommend movies
 function recommendMovies() {
     const inputTitle = document.getElementById('movieTitle').value.trim();
     const movieIndex = getIndexFromTitle(inputTitle);
@@ -250,31 +246,26 @@ function recommendMovies() {
 
     const inputMovie = movies[movieIndex];
     const similarities = movies.map((movie, index) => {
-        if (index === movieIndex) return 0;  // Ignore the same movie
-        return { title: movie.title, score: cosineSimilarity(inputMovie.features, movie.features) * 100 };  // Convert to percentage
+        if (index === movieIndex) return 0;
+        return { title: movie.title, score: cosineSimilarity(inputMovie.features, movie.features) * 100 };
     });
 
     similarities.sort((a, b) => b.score - a.score);
-    const topMovies = similarities.slice(0, 10);  // Top 10
+    const topMovies = similarities.slice(0, 10);
 
-    let resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = '';  // Clear previous results
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.innerHTML = '';
     topMovies.forEach((movie, index) => {
         const resultItem = document.createElement('p');
-        resultItem.textContent = `${index + 1}. ${movie.title} (Score: ${movie.score.toFixed(2)}%)`;
+        resultItem.textContent = `${index + 1}. ${movie.title} (${movie.score.toFixed(2)}%)`;
         resultsDiv.appendChild(resultItem);
     });
 }
 
-// Function to open and close the movie recommender popup
 function openMovieRecommender() {
-    const popup = document.getElementById('moviePopup');
-    popup.style.display = 'flex';  // Open popup
+    document.getElementById('moviePopup').style.display = 'flex';
 }
 
 function closeMovieRecommender() {
-    const popup = document.getElementById('moviePopup');
-    popup.style.display = 'none';  // Close popup
+    document.getElementById('moviePopup').style.display = 'none';
 }
-
-document.getElementById('recommendBtn').addEventListener('click', recommendMovies);
