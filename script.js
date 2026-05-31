@@ -1,5 +1,4 @@
 let size, puzzle, timer, moveCounter, time, moves, interval;
-let movies = [];
 
 document.addEventListener("DOMContentLoaded", function() {
     const themeToggle = document.getElementById("theme-toggle");
@@ -38,7 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById('play-button').addEventListener('click', openSlidingPuzzle);
     document.getElementById('backToTop').addEventListener('click', scrollToTop);
-    document.getElementById('recommendBtn').addEventListener('click', recommendMovies);
 
     const navToggle = document.getElementById('nav-toggle');
     navToggle.addEventListener('click', () => {
@@ -52,16 +50,6 @@ document.addEventListener("DOMContentLoaded", function() {
         backToTop.classList.toggle('visible', window.scrollY > 400);
         updateActiveNavLink();
     });
-
-    fetch('data/movie_dataset.json')
-        .then(response => response.json())
-        .then(data => {
-            movies = data.map(movie => ({
-                title: movie.title.trim(),
-                features: vectorize(extractFeatures(movie))
-            }));
-        })
-        .catch(error => console.error('Error loading the movie dataset:', error));
 });
 
 function closeMobileNav() {
@@ -198,74 +186,4 @@ function checkWin() {
         document.querySelectorAll('.tile').forEach(tile => tile.classList.add('finished'));
         document.getElementById('congratulationsMessage').classList.remove('hidden');
     }
-}
-
-function extractFeatures(movie) {
-    const keywords = movie.keywords ? movie.keywords : "";
-    const cast = movie.cast ? movie.cast : "";
-    const genres = movie.genres ? movie.genres : "";
-    return (keywords + " " + cast + " " + genres).toLowerCase();
-}
-
-function vectorize(text) {
-    const words = text.split(" ");
-    const wordCount = {};
-    words.forEach(word => {
-        wordCount[word] = (wordCount[word] || 0) + 1;
-    });
-    return wordCount;
-}
-
-function cosineSimilarity(vecA, vecB) {
-    let dotProduct = 0;
-    let normA = 0;
-    let normB = 0;
-    const allWords = new Set([...Object.keys(vecA), ...Object.keys(vecB)]);
-    allWords.forEach(word => {
-        const a = vecA[word] || 0;
-        const b = vecB[word] || 0;
-        dotProduct += a * b;
-        normA += a * a;
-        normB += b * b;
-    });
-    return dotProduct / (Math.sqrt(normA) * Math.sqrt(normB));
-}
-
-function getIndexFromTitle(title) {
-    return movies.findIndex(movie => movie.title.toLowerCase() === title.trim().toLowerCase());
-}
-
-function recommendMovies() {
-    const inputTitle = document.getElementById('movieTitle').value.trim();
-    const movieIndex = getIndexFromTitle(inputTitle);
-
-    if (movieIndex === -1) {
-        alert('Movie not found!');
-        return;
-    }
-
-    const inputMovie = movies[movieIndex];
-    const similarities = movies.map((movie, index) => {
-        if (index === movieIndex) return 0;
-        return { title: movie.title, score: cosineSimilarity(inputMovie.features, movie.features) * 100 };
-    });
-
-    similarities.sort((a, b) => b.score - a.score);
-    const topMovies = similarities.slice(0, 10);
-
-    const resultsDiv = document.getElementById('results');
-    resultsDiv.innerHTML = '';
-    topMovies.forEach((movie, index) => {
-        const resultItem = document.createElement('p');
-        resultItem.textContent = `${index + 1}. ${movie.title} (${movie.score.toFixed(2)}%)`;
-        resultsDiv.appendChild(resultItem);
-    });
-}
-
-function openMovieRecommender() {
-    document.getElementById('moviePopup').style.display = 'flex';
-}
-
-function closeMovieRecommender() {
-    document.getElementById('moviePopup').style.display = 'none';
 }

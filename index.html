@@ -178,15 +178,22 @@
         </div>
 
         <div class="project">
-            <button class="dropdown-btn" data-target="movieProjectSection" aria-expanded="false">
-                <span class="project-title">Movie Recommender</span>
+            <button class="dropdown-btn" data-target="triangleProjectSection" aria-expanded="false">
+                <span class="project-title">Triangle Image Generator</span>
                 <span class="dropdown-icon" aria-hidden="true"></span>
             </button>
-            <div id="movieProjectSection" class="dropdown-container hidden">
-                <p>A content-based movie recommendation system using cosine similarity across genres, cast, and keywords.</p>
+            <div id="triangleProjectSection" class="dropdown-container hidden">
+                <p>A genetic algorithm that approximates grayscale images using semi-transparent triangles. Each individual in the population represents a set of triangles, optimized through selection, crossover, and mutation to minimize difference from the target image.</p>
+                <ul class="project-features">
+                    <li>Triangle-based image representation with customizable placement, size, grayscale value, and transparency</li>
+                    <li>Configurable GA parameters: population size, mutation rate, crossover rate, and more</li>
+                    <li>Fitness evaluation via normalized mean squared error with parallel multithreaded computation</li>
+                    <li>Gaussian blur preprocessing for smoother fitness calculations</li>
+                    <li>Evolution GIF output visualizing the optimization process over generations</li>
+                </ul>
+                <p class="project-tech"><strong>Built with:</strong> Python, NumPy, Pillow, scikit-image</p>
                 <div class="project-links">
-                    <button type="button" onclick="openMovieRecommender()" class="btn">Try Recommender</button>
-                    <a href="https://github.com/Willpatpost/Movie-Recommender" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
+                    <a href="https://github.com/Willpatpost/Triangle-Image-Generator" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
                 </div>
             </div>
         </div>
@@ -359,17 +366,6 @@
         </div>
         <div id="puzzleContainer"></div>
         <p id="congratulationsMessage" class="hidden">Congratulations! You finished the puzzle.</p>
-    </div>
-</div>
-
-<div id="moviePopup" class="popup" style="display: none;">
-    <div class="popup-content">
-        <button type="button" class="close" onclick="closeMovieRecommender()" aria-label="Close">&times;</button>
-        <h2>Movie Recommender</h2>
-        <label for="movieTitle">Enter a movie title (e.g. &quot;Jaws&quot;)</label>
-        <input type="text" id="movieTitle" placeholder="Movie title">
-        <button type="button" id="recommendBtn" class="btn">Recommend</button>
-        <div id="results"></div>
     </div>
 </div>
 
