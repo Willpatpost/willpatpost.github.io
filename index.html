@@ -182,6 +182,35 @@
                     <p>A constraint satisfaction system for crossword generation and solving, built on backtracking search over the ENWiktionary lexicon (~10M entries). Word placement is modeled as variable assignment with intersection constraints at shared grid cells; the solver prunes invalid partial assignments to reduce search depth and supports end-to-end puzzle authoring and deployment.</p>
                 </div>
             </article>
+            <article class="project">
+                <button class="dropdown-btn" type="button" data-target="digitRecognizerProjectSection" aria-controls="digitRecognizerProjectSection" aria-expanded="false">
+                    <span class="project-heading">
+                        <span class="project-title">Digit Recognizer</span>
+                        <span class="project-summary">Handwritten digit recognition with from-scratch neural-network training and browser inference.</span>
+                    </span>
+                    <span class="dropdown-icon" aria-hidden="true"></span>
+                </button>
+                <div class="project-preview">
+                    <div class="tag-list">
+                        <span class="tag">Python</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Neural Networks</span>
+                        <span class="tag">Browser Demo</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://willpatpost.github.io/Digit-Recognizer/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                        <a href="https://github.com/Willpatpost/Digit-Recognizer" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
+                    </div>
+                </div>
+                <div id="digitRecognizerProjectSection" class="dropdown-container hidden">
+                    <p>A handwritten digit recognition application built with Python, NumPy, and Tkinter, with the neural network, optimizer, regularization, model persistence, and preprocessing pipeline implemented from scratch. The deployed browser demo uses an exported copy of the trained network to run preprocessing and inference locally in JavaScript.</p>
+                    <ul class="project-features">
+                        <li>Two-hidden-layer neural network with batch normalization, ReLU, dropout, Adam, and softmax classification</li>
+                        <li>Interactive drawing canvas with cropping, scaling, centering, ranked predictions, and confidence scores</li>
+                        <li>Static GitHub Pages demo that performs client-side inference without a backend</li>
+                    </ul>
+                </div>
+            </article>
 
             <article class="project">
                 <button class="dropdown-btn" type="button" data-target="project1" aria-controls="project1" aria-expanded="false">
@@ -203,6 +232,35 @@
                 </div>
                 <div id="project1" class="dropdown-container hidden">
                     <p>An N-puzzle engine with configurable grid dimensions (3&times;3-7&times;7). Game state is encoded as a tile permutation with a blank sentinel; solvability is verified via inversion-count parity before shuffle. Moves apply adjacent tile swaps relative to the blank index with O(1) state updates, plus runtime telemetry for elapsed time and move count.</p>
+                </div>
+            </article>
+            <article class="project">
+                <button class="dropdown-btn" type="button" data-target="sokobanSolverProjectSection" aria-controls="sokobanSolverProjectSection" aria-expanded="false">
+                    <span class="project-heading">
+                        <span class="project-title">Sokoban Solver</span>
+                        <span class="project-summary">Search-based Sokoban solver and playable static browser game.</span>
+                    </span>
+                    <span class="dropdown-icon" aria-hidden="true"></span>
+                </button>
+                <div class="project-preview">
+                    <div class="tag-list">
+                        <span class="tag">Python</span>
+                        <span class="tag">BFS / DFS</span>
+                        <span class="tag">Greedy Search</span>
+                        <span class="tag">A*</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://willpatpost.github.io/Sokomind/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                        <a href="https://github.com/Willpatpost/Sokoban-Solver" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
+                    </div>
+                </div>
+                <div id="sokobanSolverProjectSection" class="dropdown-container hidden">
+                    <p>Sokomind is a Sokoban variant with generic and letter-matched boxes, playable as a Python desktop application or a static browser game. The solver models puzzle states and compares DFS, BFS, Greedy, and A* search strategies across increasingly complex levels.</p>
+                    <ul class="project-features">
+                        <li>State-space search over robot movement, legal pushes, walls, storage goals, and box constraints</li>
+                        <li>Multiple solving strategies for comparing completeness, speed, and heuristic behavior</li>
+                        <li>Static GitHub Pages deployment with a playable web interface</li>
+                    </ul>
                 </div>
             </article>
 
