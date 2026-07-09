@@ -90,63 +90,75 @@
         </div>
         <div class="skills-grid">
             <div class="skill-card">
-                <h3>Languages</h3>
+                <h3>Programming</h3>
                 <div class="tag-list">
                     <span class="tag">Python</span>
                     <span class="tag">JavaScript</span>
                     <span class="tag">Java</span>
                     <span class="tag">PHP</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Frontend</h3>
-                <div class="tag-list">
-                    <span class="tag">React</span>
-                    <span class="tag">Blade</span>
+                    <span class="tag">SQL</span>
                     <span class="tag">HTML</span>
                     <span class="tag">CSS</span>
                 </div>
             </div>
             <div class="skill-card">
-                <h3>Backend</h3>
-                <div class="tag-list">
-                    <span class="tag">Laravel</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">RESTful APIs</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Cloud &amp; DevOps</h3>
-                <div class="tag-list">
-                    <span class="tag">AWS</span>
-                    <span class="tag">Azure</span>
-                    <span class="tag">Git</span>
-                    <span class="tag">CI/CD</span>
-                </div>
-            </div>
-            <div class="skill-card">
-                <h3>Data &amp; ML</h3>
+                <h3>Machine Learning &amp; Data</h3>
                 <div class="tag-list">
                     <span class="tag">Pandas</span>
                     <span class="tag">NumPy</span>
+                    <span class="tag">scikit-learn</span>
+                    <span class="tag">PCA</span>
+                    <span class="tag">Clustering</span>
+                    <span class="tag">Neural Networks</span>
                     <span class="tag">Data Visualization</span>
-                    <span class="tag">Machine Learning</span>
                 </div>
             </div>
             <div class="skill-card">
-                <h3>Tools &amp; Practices</h3>
+                <h3>Geospatial &amp; Research Computing</h3>
                 <div class="tag-list">
+                    <span class="tag">Google Earth Engine</span>
+                    <span class="tag">Rasterio</span>
+                    <span class="tag">GeoTIFF</span>
+                    <span class="tag">Google Cloud Storage</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">HPC</span>
+                    <span class="tag">Slurm</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Web &amp; Software Engineering</h3>
+                <div class="tag-list">
+                    <span class="tag">React</span>
+                    <span class="tag">Node.js</span>
+                    <span class="tag">Laravel</span>
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">Git</span>
                     <span class="tag">GitHub</span>
                     <span class="tag">GitLab</span>
-                    <span class="tag">VS Code</span>
-                    <span class="tag">Eclipse</span>
-                    <span class="tag">MATLAB</span>
-                    <span class="tag">Figma</span>
-                    <span class="tag">Cursor</span>
-                    <span class="tag">OOP</span>
+                    <span class="tag">CI/CD</span>
                     <span class="tag">TDD</span>
                     <span class="tag">Agile/Scrum</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Cloud &amp; Tools</h3>
+                <div class="tag-list">
+                    <span class="tag">AWS</span>
+                    <span class="tag">Azure</span>
+                    <span class="tag">MATLAB</span>
+                    <span class="tag">Figma</span>
+                    <span class="tag">VS Code</span>
+                    <span class="tag">Containerized Environments</span>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h3>Core Practices</h3>
+                <div class="tag-list">
+                    <span class="tag">Full-Stack Development</span>
+                    <span class="tag">Systems Engineering</span>
+                    <span class="tag">High-Performance Computing</span>
                     <span class="tag">Data Structures &amp; Algorithms</span>
+                    <span class="tag">Technical Leadership</span>
                 </div>
             </div>
         </div>
@@ -160,32 +172,9 @@
 
         <div class="project-list">
             <article class="project">
-                <button class="dropdown-btn" type="button" data-target="crosswordProjectSection" aria-controls="crosswordProjectSection" aria-expanded="false">
-                    <span class="project-heading">
-                        <span class="project-title">Crossword Creator &amp; Solver</span>
-                        <span class="project-summary">Constraint-based puzzle generation with live deployment.</span>
-                    </span>
-                    <span class="dropdown-icon" aria-hidden="true"></span>
-                </button>
-                <div class="project-preview">
-                    <div class="tag-list">
-                        <span class="tag">Constraint Satisfaction</span>
-                        <span class="tag">Backtracking</span>
-                        <span class="tag">Lexicon Search</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://willpatpost.github.io/CrossworderTest/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
-                        <a href="https://github.com/Willpatpost/Crossworder" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
-                    </div>
-                </div>
-                <div id="crosswordProjectSection" class="dropdown-container hidden">
-                    <p>A constraint satisfaction system for crossword generation and solving, built on backtracking search over the ENWiktionary lexicon (~10M entries). Word placement is modeled as variable assignment with intersection constraints at shared grid cells; the solver prunes invalid partial assignments to reduce search depth and supports end-to-end puzzle authoring and deployment.</p>
-                </div>
-            </article>
-            <article class="project">
                 <button class="dropdown-btn" type="button" data-target="digitRecognizerProjectSection" aria-controls="digitRecognizerProjectSection" aria-expanded="false">
                     <span class="project-heading">
-                        <span class="project-title">Digit Recognizer</span>
+                        <span class="project-title">Digit Recognizer NN</span>
                         <span class="project-summary">Handwritten digit recognition with from-scratch neural-network training and browser inference.</span>
                     </span>
                     <span class="dropdown-icon" aria-hidden="true"></span>
@@ -213,29 +202,6 @@
             </article>
 
             <article class="project">
-                <button class="dropdown-btn" type="button" data-target="project1" aria-controls="project1" aria-expanded="false">
-                    <span class="project-heading">
-                        <span class="project-title">Sliding Puzzle Game</span>
-                        <span class="project-summary">Browser-playable N-puzzle with solvable shuffles and telemetry.</span>
-                    </span>
-                    <span class="dropdown-icon" aria-hidden="true"></span>
-                </button>
-                <div class="project-preview">
-                    <div class="tag-list">
-                        <span class="tag">Java</span>
-                        <span class="tag">Algorithms</span>
-                        <span class="tag">Interactive UI</span>
-                    </div>
-                    <div class="project-links">
-                        <button id="play-button" class="btn" type="button">Live Demo</button>
-                        <a href="https://github.com/Willpatpost/Sliding-Puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
-                    </div>
-                </div>
-                <div id="project1" class="dropdown-container hidden">
-                    <p>An N-puzzle engine with configurable grid dimensions (3&times;3-7&times;7). Game state is encoded as a tile permutation with a blank sentinel; solvability is verified via inversion-count parity before shuffle. Moves apply adjacent tile swaps relative to the blank index with O(1) state updates, plus runtime telemetry for elapsed time and move count.</p>
-                </div>
-            </article>
-            <article class="project">
                 <button class="dropdown-btn" type="button" data-target="sokobanSolverProjectSection" aria-controls="sokobanSolverProjectSection" aria-expanded="false">
                     <span class="project-heading">
                         <span class="project-title">Sokoban Solver</span>
@@ -262,6 +228,54 @@
                         <li>Multiple solving strategies for comparing completeness, speed, and heuristic behavior</li>
                         <li>Static GitHub Pages deployment with a playable web interface</li>
                     </ul>
+                </div>
+            </article>
+
+            <article class="project">
+                <button class="dropdown-btn" type="button" data-target="crosswordProjectSection" aria-controls="crosswordProjectSection" aria-expanded="false">
+                    <span class="project-heading">
+                        <span class="project-title">Crossword Solver</span>
+                        <span class="project-summary">Constraint-based puzzle generation with live deployment.</span>
+                    </span>
+                    <span class="dropdown-icon" aria-hidden="true"></span>
+                </button>
+                <div class="project-preview">
+                    <div class="tag-list">
+                        <span class="tag">Constraint Satisfaction</span>
+                        <span class="tag">Backtracking</span>
+                        <span class="tag">Lexicon Search</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://willpatpost.github.io/CrossworderTest/" target="_blank" rel="noopener noreferrer" class="btn">Live Demo</a>
+                        <a href="https://github.com/Willpatpost/Crossworder" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
+                    </div>
+                </div>
+                <div id="crosswordProjectSection" class="dropdown-container hidden">
+                    <p>A constraint satisfaction system for crossword generation and solving, built on backtracking search over the ENWiktionary lexicon (~10M entries). Word placement is modeled as variable assignment with intersection constraints at shared grid cells; the solver prunes invalid partial assignments to reduce search depth and supports end-to-end puzzle authoring and deployment.</p>
+                </div>
+            </article>
+
+            <article class="project">
+                <button class="dropdown-btn" type="button" data-target="project1" aria-controls="project1" aria-expanded="false">
+                    <span class="project-heading">
+                        <span class="project-title">Sliding Puzzle Game</span>
+                        <span class="project-summary">Browser-playable N-puzzle with solvable shuffles and telemetry.</span>
+                    </span>
+                    <span class="dropdown-icon" aria-hidden="true"></span>
+                </button>
+                <div class="project-preview">
+                    <div class="tag-list">
+                        <span class="tag">Java</span>
+                        <span class="tag">Algorithms</span>
+                        <span class="tag">Interactive UI</span>
+                    </div>
+                    <div class="project-links">
+                        <button id="play-button" class="btn" type="button">Live Demo</button>
+                        <a href="https://github.com/Willpatpost/Sliding-Puzzle" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Source Code</a>
+                    </div>
+                </div>
+                <div id="project1" class="dropdown-container hidden">
+                    <p>An N-puzzle engine with configurable grid dimensions (3&times;3-7&times;7). Game state is encoded as a tile permutation with a blank sentinel; solvability is verified via inversion-count parity before shuffle. Moves apply adjacent tile swaps relative to the blank index with O(1) state updates, plus runtime telemetry for elapsed time and move count.</p>
                 </div>
             </article>
 
@@ -297,7 +311,6 @@
             </article>
         </div>
     </section>
-
     <section id="resume" class="section">
         <div class="section-header">
             <span class="section-label">Experience</span>
@@ -305,49 +318,29 @@
         </div>
         <div class="resume-card">
             <div class="resume-item">
-                <h3>Education</h3>
-                <div class="resume-entry">
-                    <div class="resume-entry-header">
-                        <strong>Old Dominion University (ODU)</strong>
-                        <span class="resume-date">May 2026 &ndash; Present</span>
-                    </div>
-                    <p>Master of Science (MS), Computer Science &mdash; GPA: 4.00/4.00</p>
-                </div>
-                <div class="resume-entry">
-                    <div class="resume-entry-header">
-                        <strong>Old Dominion University (ODU)</strong>
-                        <span class="resume-date">May 2026 &ndash; Present</span>
-                    </div>
-                    <p>Master of Science (MS), Data Science &mdash; Concentration in AI &amp; Machine Learning &mdash; GPA: 4.00/4.00</p>
-                </div>
-                <div class="resume-entry">
-                    <div class="resume-entry-header">
-                        <strong>Old Dominion University (ODU)</strong>
-                        <span class="resume-date">August 2023 &ndash; December 2025</span>
-                    </div>
-                    <p>Bachelor of Science (BS), Computer Science &mdash; Perry Honors College Graduate &mdash; Minor in Data Science &mdash; GPA: 3.55/4.00</p>
-                </div>
-                <div class="resume-entry">
-                    <div class="resume-entry-header">
-                        <strong>Paul D. Camp Community College</strong>
-                        <span class="resume-date">August 2021 &ndash; December 2022</span>
-                    </div>
-                    <p>Associate of Science (AS), Computer Science &mdash; GPA: 3.89/4.00</p>
-                </div>
+                <h3>Professional Summary</h3>
+                <p>Software and data engineer pursuing dual master's degrees in Computer Science and Data Science, with experience in geospatial machine learning, high-performance computing, full-stack development, and mission-critical satellite communications testing. Demonstrated technical leadership across defense, NASA, university research, and award-winning software projects.</p>
             </div>
 
             <div class="resume-item">
-                <h3>Experience</h3>
+                <h3>Research Experience</h3>
                 <div class="resume-entry">
                     <div class="resume-entry-header">
                         <strong>Graduate Research Assistant</strong>
                         <span class="resume-date">May 2026 &ndash; Present</span>
                     </div>
-                    <p class="resume-org">ODU Research Foundation</p>
+                    <p class="resume-org">Old Dominion University Research Foundation &mdash; Norfolk, VA</p>
                     <ul class="resume-bullets">
-                        <li>Assisting two professors in their respective research while pursuing dual master's degrees in Computer Science and Data Science (AI &amp; Machine Learning).</li>
+                        <li>Develop scalable geospatial machine-learning pipelines using Google AlphaEarth Foundations' 64-dimensional satellite embeddings to analyze land and environmental patterns across Hampton Roads, Virginia.</li>
+                        <li>Process 64-band, 10-meter-resolution raster imagery through Google Earth Engine and ODU's Waterfield high-performance computing cluster.</li>
+                        <li>Constructed an analysis-ready dataset containing 99,986 geospatial observations and 71 variables, including spatial metadata and 64 learned embedding dimensions.</li>
+                        <li>Apply exploratory analysis, PCA, k-means clustering, and geospatial visualization to interpret structure in high-dimensional satellite data.</li>
                     </ul>
                 </div>
+            </div>
+
+            <div class="resume-item">
+                <h3>Professional Experience</h3>
                 <div class="resume-entry">
                     <div class="resume-entry-header">
                         <strong>Software and Systems Engineer Intern</strong>
@@ -355,9 +348,9 @@
                     </div>
                     <p class="resume-org">KBR</p>
                     <ul class="resume-bullets">
-                        <li>Supported test and evaluation of satellite communications systems for mission-critical communications programs.</li>
-                        <li>Analyzed system behavior, identified failure points, and assisted in validating communication reliability under simulated operational conditions.</li>
-                        <li>Collaborated with engineers and analysts in a high-security engineering environment.</li>
+                        <li>Supported test and evaluation of satellite communications systems for the U.S. Air Force and Space Force Nuclear Command, Control, and Communications (NC3) program.</li>
+                        <li>Analyzed system behavior and test results to identify failure modes and evaluate communications reliability under simulated operational conditions.</li>
+                        <li>Collaborated with multidisciplinary engineering and analysis teams in a mission-critical, security-controlled environment.</li>
                     </ul>
                 </div>
                 <div class="resume-entry">
@@ -365,11 +358,11 @@
                         <strong>LunaSat Engineering Team Lead</strong>
                         <span class="resume-date">June 2022 &ndash; June 2023</span>
                     </div>
-                    <p class="resume-org">NASA</p>
+                    <p class="resume-org">NASA Artemis II Project</p>
                     <ul class="resume-bullets">
-                        <li>Selected to lead a 10-person multidisciplinary engineering team for NASA's Artemis II LunaSat project.</li>
-                        <li>Integrated hardware and software components and validated data transmission to Mission Control.</li>
-                        <li>Designed, programmed, and tested spacecraft sensor systems to collect and transmit lunar environmental data.</li>
+                        <li>Led a 10-member multidisciplinary engineering team developing an experimental lunar satellite sensor system for the Artemis II program.</li>
+                        <li>Coordinated hardware-software integration and designed, programmed, and tested sensors measuring seismic activity, temperature, gravity, and magnetic fields.</li>
+                        <li>Validated end-to-end collection and transmission of spacecraft sensor data to a simulated Mission Control environment.</li>
                     </ul>
                 </div>
                 <div class="resume-entry">
@@ -379,25 +372,91 @@
                     </div>
                     <p class="resume-org">CoVA CCI</p>
                     <ul class="resume-bullets">
-                        <li>Developed a subscription-based web extension product to protect users from malware and cyber threats while educating them on safe media and browsing practices.</li>
-                        <li>First Place winner in the 2022 INNOVATE Cyber Competition; achieved continued stakeholder sponsorship for system operations.</li>
+                        <li>Developed a subscription-based browser extension that protects users from malware and other cyber threats while promoting safe browsing practices.</li>
+                        <li>Worked autonomously within a peer development team to translate stakeholder needs into a functional web product.</li>
+                        <li>Won First Place in the 2022 INNOVATE Cyber Competition and secured continued stakeholder sponsorship for system operations.</li>
                     </ul>
                 </div>
             </div>
 
             <div class="resume-item">
-                <h3>Accomplishments</h3>
+                <h3>Selected Projects</h3>
+                <div class="resume-entry">
+                    <div class="resume-entry-header">
+                        <strong>Crossworder</strong>
+                        <span class="resume-date">November 2024 &ndash; Present</span>
+                    </div>
+                    <ul class="resume-bullets">
+                        <li>Developed a constraint-based backtracking engine that solves and generates crossword puzzles using ENWiktionary, a dictionary containing more than 10 million entries.</li>
+                        <li>Implemented candidate filtering and recursive search logic to satisfy intersecting-letter constraints and reduce the solution space.</li>
+                    </ul>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-header">
+                        <strong>ItinerEase</strong>
+                        <span class="resume-date">January 2025 &ndash; December 2025</span>
+                    </div>
+                    <ul class="resume-bullets">
+                        <li>Developed a personalized travel-planning application that generates day-by-day itineraries using scraped destination data and generative AI.</li>
+                        <li>Designed a hybrid recommendation engine that ranks activities according to user preferences before supplying structured candidates to an OpenAI-powered generation workflow.</li>
+                    </ul>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-header">
+                        <strong>Handwritten Digit Recognizer</strong>
+                        <span class="resume-date">August 2024 &ndash; December 2024</span>
+                    </div>
+                    <ul class="resume-bullets">
+                        <li>Implemented a feedforward neural network and training pipeline from scratch in Python without relying on a deep-learning framework.</li>
+                        <li>Created a Tkinter interface that lets users draw digits, perform inference, train custom models, and load saved model parameters.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="resume-item">
+                <h3>Education</h3>
+                <div class="resume-entry">
+                    <div class="resume-entry-header">
+                        <strong>Old Dominion University (ODU)</strong>
+                        <span class="resume-date">May 2027</span>
+                    </div>
+                    <p>Master of Science (MS), Computer Science &mdash; GPA: 4.00/4.00</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-header">
+                        <strong>Old Dominion University (ODU)</strong>
+                        <span class="resume-date">May 2027</span>
+                    </div>
+                    <p>Master of Science (MS), Data Science &mdash; Concentration in AI &amp; Machine Learning &mdash; GPA: 4.00/4.00</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-header">
+                        <strong>Old Dominion University (ODU)</strong>
+                        <span class="resume-date">December 2025</span>
+                    </div>
+                    <p>Bachelor of Science (BS), Computer Science &mdash; Minor in Data Science &mdash; Perry Honors College Graduate &mdash; GPA: 3.55/4.00</p>
+                </div>
+                <div class="resume-entry">
+                    <div class="resume-entry-header">
+                        <strong>Paul D. Camp Community College</strong>
+                        <span class="resume-date">December 2022</span>
+                    </div>
+                    <p>Associate of Science (AS), Computer Science &mdash; GPA: 3.89/4.00</p>
+                </div>
+            </div>
+
+            <div class="resume-item">
+                <h3>Honors &amp; Awards</h3>
                 <ul class="resume-bullets">
-                    <li>2022 INNOVATE Cyber award winner</li>
-                    <li>Perry Honors College graduate</li>
-                    <li>Experience in cleared, mission-critical engineering environments</li>
+                    <li>First Place, 2022 INNOVATE Cyber Competition</li>
+                    <li>Perry Honors College Graduate, Old Dominion University</li>
+                    <li>Active U.S. Department of Defense Secret security clearance</li>
                 </ul>
             </div>
 
             <a href="data/william-poston-resume.pdf" download class="btn btn-primary">Download Full Resume (PDF)</a>
         </div>
     </section>
-
     <section id="contact" class="section">
         <div class="section-header">
             <span class="section-label">Get in Touch</span>
